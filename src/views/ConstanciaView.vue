@@ -105,7 +105,9 @@ import { ref, reactive, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://sisacad-enrollments-backend.vercel.app/restful/'
+// En producción (Netlify) usa el proxy /api/ para evitar CORS.
+// En desarrollo local usa la URL directa del backend.
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/'
 
 const route = useRoute()
 const cui = route.params.cui
